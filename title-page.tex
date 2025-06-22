@@ -1,0 +1,69 @@
+% =============================================================================
+% PÁGINA DE TÍTULO PROFESIONAL
+% =============================================================================
+% Este archivo genera automáticamente una portada profesional usando las
+% variables definidas en el documento principal.
+
+\begin{titlepage}
+    \thispagestyle{empty} % Sin numeración en la página de título
+    \begin{center}
+        
+        % Logo institucional
+        \includegraphics[width=1.5in]{\institutionalLogo}
+        \vspace{0.2in}
+
+        % Líneas decorativas debajo del logo
+        \noindent\rule{\textwidth}{0.4pt}
+        \noindent\rule{\textwidth}{7pt}
+        \vspace{0.2in}
+
+        % Nombre de la universidad
+        {\Huge\bfseries \universityName}
+        \vspace{0.2in}
+
+        % Información del departamento y facultad
+        {\Large\bfseries \departmentName}
+        
+        {\large\bfseries \facultyName}
+        \vspace{0.1in}
+
+        % Título principal del documento en caja colorida
+        \begin{tcolorbox}[
+            sharp corners,
+            boxrule=0pt, 
+            colframe=secondaryColor, 
+            colback=primaryColor, 
+            coltext=headerTextColor, 
+            width=1\textwidth, 
+            center, 
+            halign=center
+        ]
+            \Huge\bfseries \documentMainTitle
+        \end{tcolorbox}
+        \vspace{0.1in}
+
+        % Información del curso
+        {\large\bfseries \courseName}
+        
+        {\bfseries \courseCode}
+        \vspace{0.1in}
+
+        \vfill
+
+        % Información del estudiante
+        {\large\bfseries \studentName}
+        
+        {\small\bfseries \studentId}
+
+        \vfill
+        \vspace{0.1in}
+
+        % Información del instructor
+        {\large\bfseries Prof. \instructorName}
+        \vspace{0.1in}
+
+        % Fecha de entrega
+        \bfseries \submissionDate
+        
+    \end{center}
+\end{titlepage}

@@ -1,0 +1,450 @@
+% =============================================================================
+% TEMPLATE ACADÉMICO PARA TRABAJOS EDUCATIVOS - VERSIÓN AUTOCONTENIDA
+% =============================================================================
+% Este template proporciona una estructura completa y profesional para trabajos
+% académicos, ensayos, cuestionarios, reportes y otros documentos educativos.
+% 
+% INSTRUCCIONES DE USO:
+% 1. Personalizar las variables de documento en la sección "CONFIGURACIÓN DEL DOCUMENTO"
+% 2. Modificar colores en la sección "CONFIGURACIÓN DE COLORES" si es necesario
+% 3. Agregar contenido en las secciones correspondientes
+% 4. Ejecutar: pdflatex + biber + pdflatex + pdflatex
+%
+% COMPATIBILIDAD LLM:
+% - Todas las variables están claramente documentadas
+% - Estructura modular para fácil comprensión
+% - Comentarios explicativos en cada sección
+% =============================================================================
+
+\documentclass[12pt]{article}
+
+% =============================================================================
+% CONFIGURACIÓN DE PÁGINA Y GEOMETRÍA
+% =============================================================================
+% Establece el tamaño de página, márgenes y espaciado general del documento
+\usepackage[letterpaper, margin=1in, headheight=0.25in, headsep=0.5in]{geometry}
+\setlength{\footskip}{33.5pt} % Espacio para el pie de página
+
+% =============================================================================
+% CONFIGURACIÓN DE IDIOMA Y CODIFICACIÓN
+% =============================================================================
+% Configuración para documentos en español con codificación UTF-8
+\usepackage[spanish,es-tabla,es-nodecimaldot]{babel} % Idioma español
+\usepackage[utf8]{inputenc}     % Codificación de entrada UTF-8
+\usepackage[T1]{fontenc}        % Codificación de fuentes T1
+\usepackage{lmodern}            % Fuente Latin Modern mejorada
+
+% =============================================================================
+% PAQUETES PARA GRÁFICOS Y TABLAS
+% =============================================================================
+% Herramientas para inserción de imágenes y creación de tablas profesionales
+\usepackage{graphicx}           % Inserción de imágenes
+\usepackage{tcolorbox}          % Cajas de texto con color
+\usepackage{booktabs}           % Tablas profesionales
+\usepackage{tabularray}         % Tablas avanzadas
+\usepackage{tabularx}           % Tablas con ancho automático
+
+% =============================================================================
+% CONFIGURACIÓN DE FORMATO Y ESPACIADO
+% =============================================================================
+% Controla el espaciado entre párrafos y otros elementos de formato
+\usepackage{parskip}            % Espaciado automático entre párrafos
+\usepackage{needspace}          % Control de saltos de página
+\usepackage{calc}               % Cálculos matemáticos en LaTeX
+
+% =============================================================================
+% PAQUETES PARA COLORES Y DISEÑO VISUAL
+% =============================================================================
+% Herramientas para personalización visual del documento
+\usepackage{xcolor}             % Soporte para colores avanzados
+\usepackage{tikz}               % Gráficos vectoriales para headers/footers
+
+% =============================================================================
+% CONFIGURACIÓN DE ENCABEZADOS Y PIES DE PÁGINA
+% =============================================================================
+% Sistema de headers y footers personalizados
+\usepackage{fancyhdr}           % Encabezados y pies de página personalizados
+\usepackage{lastpage}           % Referencia a la última página
+
+% =============================================================================
+% CONFIGURACIÓN DE TÍTULOS Y SECCIONES
+% =============================================================================
+% Personalización del formato de títulos y secciones
+\usepackage{titlesec}           % Personalización de títulos de sección
+
+% =============================================================================
+% CONFIGURACIÓN DE ÍNDICES Y TABLA DE CONTENIDOS
+% =============================================================================
+% Herramientas para generar índices profesionales
+\usepackage{tocloft}            % Personalización de tabla de contenidos
+
+% =============================================================================
+% CONFIGURACIÓN MATEMÁTICA
+% =============================================================================
+% Soporte para fórmulas y expresiones matemáticas
+\usepackage{amsmath}            % Entorno matemático avanzado
+
+% =============================================================================
+% CONFIGURACIÓN DE BIBLIOGRAFÍA
+% =============================================================================
+% Sistema de referencias bibliográficas con Biber/BibLaTeX
+\usepackage[backend=biber, style=ieee, sortcites, url=true, autocite=superscript]{biblatex}
+\usepackage{csquotes}           % Manejo de citas y comillas
+
+% =============================================================================
+% CONFIGURACIÓN DE HIPERVÍNCULOS
+% =============================================================================
+% Enlaces internos y externos en el documento
+\usepackage{hyperref}           % Hipervínculos (debe cargarse al final)
+
+% =============================================================================
+% CONFIGURACIÓN DE COLORES DEL TEMPLATE
+% =============================================================================
+% Paleta de colores principal del documento. Modifica estos valores para
+% personalizar la apariencia visual del template.
+
+% Colores primarios (usados en títulos y elementos principales)
+\definecolor{primaryColor}{RGB}{124, 10, 2}        % Rojo oscuro principal
+\definecolor{secondaryColor}{RGB}{240, 89, 65}     % Rojo medio secundario  
+\definecolor{accentColor}{RGB}{239, 167, 0}        % Naranja para acentos
+
+% Colores funcionales
+\definecolor{linkColor}{RGB}{239, 167, 0}          % Color para hipervínculos
+\definecolor{headerTextColor}{RGB}{255, 255, 255}  % Texto en encabezados
+\definecolor{bodyTextColor}{RGB}{0, 0, 0}          % Texto principal del documento
+
+% =============================================================================
+% CONFIGURACIÓN DEL DOCUMENTO - PERSONALIZAR AQUÍ
+% =============================================================================
+% Variables principales del documento. Modifica estos valores para personalizar
+% tu trabajo académico.
+
+% Información institucional
+\newcommand{\universityName}{Pontificia Universidad Católica Madre y Maestra}
+\newcommand{\departmentName}{[NOMBRE DEL DEPARTAMENTO]}     % Ej: Escuela de Ingeniería
+\newcommand{\facultyName}{[NOMBRE DE LA FACULTAD]}         % Ej: Facultad de Ciencias e Ingeniería
+
+% Información del documento
+\newcommand{\documentMainTitle}{[TÍTULO PRINCIPAL DEL DOCUMENTO]}     % Título completo
+\newcommand{\documentShortTitle}{[TÍTULO CORTO]}                      % Título para headers (máx 20 caracteres)
+
+% Información del curso
+\newcommand{\courseName}{[NOMBRE DEL CURSO]}               % Ej: Metodología de la Investigación
+\newcommand{\courseCode}{[CÓDIGO DEL CURSO]}               % Ej: CSTI-1890-4341
+
+% Información del estudiante (mantener datos reales)
+\newcommand{\studentName}{Cristian de la Hoz}
+\newcommand{\studentId}{(0000-0000)}
+
+% Información del instructor
+\newcommand{\instructorName}{[NOMBRE DEL PROFESOR]}        % Ej: Prof. Juan Pérez
+
+% Fechas
+\newcommand{\submissionDate}{[MES DE AÑO]}                 % Ej: Enero de 2024
+\newcommand{\shortDate}{[DD/MM/AAAA]}                      % Ej: 15/01/2024
+
+% Información del logo institucional (comentado para versión autocontenida, si el logo no fue proporcionado, solicitar el mismo)
+\newcommand{\institutionalLogo}{assets/Logo PUCMM (Color).png}
+
+% =============================================================================
+% CONFIGURACIÓN DE FORMATO DE TÍTULOS
+% =============================================================================
+% Personalización visual de secciones, subsecciones y subsubsecciones
+
+% Formato para secciones principales
+\titleformat{\section}
+    {\color{primaryColor}\Large\bfseries}                    % Estilo del texto
+    {\fcolorbox{primaryColor}{primaryColor}{\color{headerTextColor}\thesection}} % Número de sección
+    {1em}                                                     % Separación
+    {}                                                        % Código antes del título
+    [{\titlerule[0.5ex]}]                                    % Línea debajo del título
+
+% Formato para subsecciones
+\titleformat{\subsection}
+    {\color{primaryColor}\large}                             % Estilo del texto
+    {\bfseries\color{primaryColor}\thesubsection}            % Número de subsección
+    {1em}                                                     % Separación
+    {}                                                        % Código antes del título
+
+% Formato para subsubsecciones
+\titleformat{\subsubsection}
+    {\color{primaryColor}}                                   % Estilo del texto
+    {\bfseries\color{primaryColor}\thesubsubsection}         % Número de subsubsección
+    {1em}                                                     % Separación
+    {}                                                        % Código antes del título
+
+% =============================================================================
+% CONFIGURACIÓN DE ENCABEZADOS Y PIES DE PÁGINA
+% =============================================================================
+% Sistema personalizado de headers y footers con elementos gráficos
+
+% Eliminar líneas por defecto de fancyhdr
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Comando para crear caja decorativa en el encabezado
+\newcommand{\createHeaderBox}{
+    \begin{tikzpicture}[overlay, remember picture, x=1in, y=1in, shift=(current page.north west)]
+        \fill[primaryColor] (1,-0.25) rectangle (\headerBoxWidth,-0.5);
+        \draw[secondaryColor, ultra thick] (0.25,-0.5) -- (6,-0.5);
+    \end{tikzpicture}
+}
+
+% Comando para el logo en el pie de página
+\newcommand{\createFooterLogo}{
+    \color{secondaryColor}\textbf{PUCMM}
+}
+
+% Configuración de headers y footers
+\fancyhead{}                    % Limpiar encabezados
+\fancyfoot{}                    % Limpiar pies de página
+\fancyfoot[R]{\createFooterLogo}                              % Logo en pie derecho
+\fancyhead[L]{\createHeaderBox\color{headerTextColor}\documentShortTitle} % Título en encabezado izquierdo
+\fancyhead[R]{\color{bodyTextColor}Pág.\ \thepage\ -~\pageref{LastPage}} % Paginación en encabezado derecho
+
+% =============================================================================
+% CONFIGURACIÓN DE TABLA DE CONTENIDOS
+% =============================================================================
+% Personalización del índice con puntillismo y espaciado profesional
+
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}      % Puntillismo para secciones
+\renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}}   % Puntillismo para subsecciones
+\setlength{\cftbeforesecskip}{0.5em}                       % Espacio antes de secciones
+\setlength{\cftbeforesubsecskip}{0.2em}                    % Espacio antes de subsecciones
+
+% =============================================================================
+% GENERACIÓN AUTOMÁTICA DE ARCHIVO BIBLIOGRÁFICO
+% =============================================================================
+% Este bloque crea automáticamente un archivo biblio.bib con entradas de ejemplo
+% DESPUÉS DE LA PRIMERA COMPILACIÓN, puedes comentar este bloque si ya tienes
+% tu propio archivo de bibliografía.
+
+\begin{filecontents*}{biblio.bib}
+% Archivo de bibliografía generado automáticamente
+% Reemplaza estas entradas con tus referencias reales
+
+@book{ejemplo2024,
+  author = {Apellido, Nombre and Apellido2, Nombre2},
+  title = {Título del Libro de Ejemplo},
+  year = {2024},
+  edition = {1},
+  publisher = {Editorial Ejemplo},
+  address = {Ciudad, País}
+}
+
+@article{ejemploarticulo2024,
+  author = {Investigador, Principal},
+  title = {Título del Artículo de Investigación},
+  journal = {Revista Académica Ejemplo},
+  volume = {15},
+  number = {3},
+  pages = {45-67},
+  year = {2024}
+}
+
+@online{ejemploweb2024,
+  author = {Organización Ejemplo},
+  title = {Título del Recurso Web},
+  year = {2024},
+  url = {https://www.ejemplo.com},
+  urldate = {2024-01-15}
+}
+\end{filecontents*}
+
+% Cargar archivo de bibliografía
+\addbibresource{biblio.bib}
+
+% =============================================================================
+% CONFIGURACIÓN DE HIPERVÍNCULOS
+% =============================================================================
+% Personalización de enlaces internos y externos del documento
+\hypersetup{
+    linktoc=page,                    % Enlaces en números de página del índice
+    colorlinks=true,                 % Colorear enlaces en lugar de cajas
+    allcolors=linkColor,             % Color uniforme para todos los enlaces
+    pdftitle=\documentMainTitle      % Título en metadatos del PDF
+}
+
+% =============================================================================
+% CÁLCULO AUTOMÁTICO DE DIMENSIONES
+% =============================================================================
+% Variables calculadas automáticamente para elementos gráficos
+\newlength{\headerBoxWidth}
+\AtBeginDocument{
+    \setlength{\headerBoxWidth}{\widthof{\documentShortTitle}+1.11in}
+}
+
+% =============================================================================
+% DEFINICIÓN DE PÁGINA DE TÍTULO (INTEGRADA)
+% =============================================================================
+% Comando que genera la página de título profesional
+
+\newcommand{\createTitlePage}{
+    \begin{titlepage}
+        \thispagestyle{empty} % Sin numeración en la página de título
+        \begin{center}
+            
+            % Logo institucional (comentado para versión autocontenida)
+            % \includegraphics[width=1.5in]{\institutionalLogo}
+            % \vspace{0.2in}
+
+            % Líneas decorativas superiores
+            \noindent\rule{\textwidth}{0.4pt}
+            \noindent\rule{\textwidth}{7pt}
+            \vspace{0.4in}
+
+            % Nombre de la universidad
+            {\Huge\bfseries \universityName}
+            \vspace{0.2in}
+
+            % Información del departamento y facultad
+            {\Large\bfseries \departmentName}
+            
+            {\large\bfseries \facultyName}
+            \vspace{0.2in}
+
+            % Título principal del documento en caja colorida
+            \begin{tcolorbox}[
+                sharp corners,
+                boxrule=0pt, 
+                colframe=secondaryColor, 
+                colback=primaryColor, 
+                coltext=headerTextColor, 
+                width=1\textwidth, 
+                center, 
+                halign=center
+            ]
+                \Huge\bfseries \documentMainTitle
+            \end{tcolorbox}
+            \vspace{0.2in}
+
+            % Información del curso
+            {\large\bfseries \courseName}
+            
+            {\bfseries \courseCode}
+            \vspace{0.2in}
+
+            \vfill
+
+            % Información del estudiante
+            {\large\bfseries \studentName}
+            
+            {\small\bfseries \studentId}
+
+            \vfill
+            \vspace{0.1in}
+
+            % Información del instructor
+            {\large\bfseries Prof. \instructorName}
+            \vspace{0.2in}
+
+            % Fecha de entrega
+            \bfseries \submissionDate
+            
+        \end{center}
+    \end{titlepage}
+}
+
+% =============================================================================
+% INICIO DEL DOCUMENTO
+% =============================================================================
+\begin{document}
+
+% =============================================================================
+% PÁGINA DE TÍTULO
+% =============================================================================
+% Portada profesional del documento generada automáticamente
+\createTitlePage
+
+% =============================================================================
+% TABLA DE CONTENIDOS
+% =============================================================================
+% Índice automático del documento
+\newpage
+\pagenumbering{Roman}               % Numeración romana para páginas preliminares
+\tableofcontents
+\newpage
+
+% =============================================================================
+% CONTENIDO PRINCIPAL DEL DOCUMENTO
+% =============================================================================
+% Aquí comienza el contenido académico principal
+\pagenumbering{arabic}              % Numeración arábiga para contenido principal
+\pagestyle{fancy}                   % Activar encabezados y pies de página personalizados
+
+% -----------------------------------------------------------------------------
+% SECCIÓN: INTRODUCCIÓN
+% -----------------------------------------------------------------------------
+% Presenta el propósito y contexto del trabajo académico
+\section{Introducción}
+
+ [ESCRIBIR AQUÍ LA INTRODUCCIÓN DEL DOCUMENTO]
+
+% Ejemplo de introducción:
+% Este documento presenta un análisis detallado sobre [TEMA PRINCIPAL]. 
+% El objetivo es [OBJETIVO PRINCIPAL] mediante [METODOLOGÍA UTILIZADA].
+% La estructura del trabajo incluye [DESCRIPCIÓN DE SECCIONES].
+
+% -----------------------------------------------------------------------------
+% SECCIÓN: DESARROLLO PRINCIPAL
+% -----------------------------------------------------------------------------
+% Contenido principal del trabajo académico
+\section{Desarrollo}
+
+% Subsección de ejemplo
+\subsection{[Título de Subsección]}
+
+[CONTENIDO DE LA SUBSECCIÓN]
+
+% Ejemplo de cómo citar fuentes
+% Según \cite{ejemplo2024}, el tema de investigación presenta características importantes...
+
+% Otra subsección de ejemplo
+\subsection{[Otra Subsección]}
+
+[CONTENIDO DE OTRA SUBSECCIÓN]
+
+% Subsubsección de ejemplo
+\subsubsection{[Tema Específico]}
+
+[CONTENIDO ESPECÍFICO]
+
+% -----------------------------------------------------------------------------
+% SECCIÓN: ANÁLISIS Y RESULTADOS (OPCIONAL)
+% -----------------------------------------------------------------------------
+% Incluir esta sección para trabajos de investigación o análisis
+\section{Análisis y Resultados}
+
+ [PRESENTAR AQUÍ EL ANÁLISIS DE LOS DATOS O RESULTADOS OBTENIDOS]
+
+% -----------------------------------------------------------------------------
+% SECCIÓN: DISCUSIÓN (OPCIONAL)
+% -----------------------------------------------------------------------------
+% Interpretación de resultados y conexión con literatura existente
+\section{Discusión}
+
+ [INTERPRETAR Y DISCUTIR LOS RESULTADOS EN RELACIÓN CON EL CONTEXTO ACADÉMICO]
+
+% -----------------------------------------------------------------------------
+% SECCIÓN: CONCLUSIONES
+% -----------------------------------------------------------------------------
+% Síntesis final del trabajo y recomendaciones
+\section{Conclusiones}
+
+ [ESCRIBIR AQUÍ LAS CONCLUSIONES PRINCIPALES DEL TRABAJO]
+
+% Ejemplo de estructura para conclusiones:
+% 1. Resumen de hallazgos principales
+% 2. Implicaciones teóricas o prácticas
+% 3. Limitaciones del estudio
+% 4. Recomendaciones para trabajo futuro
+
+% =============================================================================
+% BIBLIOGRAFÍA
+% =============================================================================
+% Referencias bibliográficas automáticas
+\newpage
+\pagestyle{empty}                   % Sin encabezados ni pies de página
+\printbibliography[heading=bibintoc, title={Referencias}]
+
+\end{document}

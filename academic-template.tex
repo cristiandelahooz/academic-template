@@ -88,7 +88,7 @@
 % CONFIGURACIÓN DE BIBLIOGRAFÍA
 % =============================================================================
 % Sistema de referencias bibliográficas con Biber/BibLaTeX
-\usepackage[backend=biber, style=ieee, sortcites, url=true, autocite=superscript]{biblatex}
+\usepackage[backend=biber, style=apa, sortcites, url=true, autocite=superscript]{biblatex}
 \usepackage{csquotes}           % Manejo de citas y comillas
 
 % =============================================================================
@@ -149,6 +149,8 @@
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
+\renewcommand{\arraystretch}{1.5} % Más espacio entre filas de tablas
+
 % Comando para crear caja decorativa en el encabezado
 \newcommand{\createHeaderBox}{
     \begin{tikzpicture}[overlay, remember picture, x=1in, y=1in, shift=(current page.north west)]
@@ -187,27 +189,31 @@
 
 % Información institucional
 \newcommand{\universityName}{Pontificia Universidad Católica Madre y Maestra}
-\newcommand{\departmentName}{[NOMBRE DEL DEPARTAMENTO]}     % Ej: Escuela de Ingeniería
-\newcommand{\facultyName}{[NOMBRE DE LA FACULTAD]}         % Ej: Facultad de Ciencias e Ingeniería
+\newcommand{\departmentName}{Escuela de Ingeniería en Computación y Telecomunicaciones}     % Ej: Escuela de Ingeniería
+\newcommand{\facultyName}{Facultad de Ciencias e Ingeniería}         % Ej: Facultad de Ciencias e Ingeniería
 
 % Información del documento
-\newcommand{\documentMainTitle}{[TÍTULO PRINCIPAL DEL DOCUMENTO]}     % Título completo
-\newcommand{\documentShortTitle}{[TÍTULO CORTO]}                      % Título para headers (máx 20 caracteres)
+\newcommand{\documentMainTitle}{Evaluación comparativa de algoritmos de reconocimiento facial en la identificación de características demográficas}     % Título completo
+\newcommand{\documentShortTitle}{Evaluación de Algoritmos}                      % Título para headers (máx 20 caracteres)
 
 % Información del curso
-\newcommand{\courseName}{[NOMBRE DEL CURSO]}               % Ej: Metodología de la Investigación
-\newcommand{\courseCode}{[CÓDIGO DEL CURSO]}               % Ej: CSTI-1890-4341
+\newcommand{\courseName}{Metodología de la Investigación}               % Ej: Metodología de la Investigación
+\newcommand{\courseCode}{CSTI-1890-4341}               % Ej: CSTI-1890-4341
 
 % Información del estudiante (mantener datos reales)
 \newcommand{\studentName}{Cristian de la Hoz}
-\newcommand{\studentId}{(0000-0000)}
+\newcommand{\studentId}{(1014-9779)}
+\newcommand{\secondStudentName}{Jean Carlos Pérez Ortega}
+\newcommand{\secondStudentId}{(1014-8917)}
+\newcommand{\thirdStudentName}{Randy Alexander Germosén Ureña}
+\newcommand{\thirdStudentId}{(1013-4707)}
 
 % Información del instructor
-\newcommand{\instructorName}{[NOMBRE DEL PROFESOR]}        % Ej: Prof. Juan Pérez
+\newcommand{\instructorName}{Arlene Estévez}        % Ej: Prof. Juan Pérez
 
 % Fechas
-\newcommand{\submissionDate}{[MES DE AÑO]}                 % Ej: Enero de 2024
-\newcommand{\shortDate}{[DD/MM/AAAA]}                      % Ej: 15/01/2024
+\newcommand{\submissionDate}{Julio de 2025}                 % Ej: Enero de 2025
+\newcommand{\shortDate}{21/07/2025}                      % Ej: 15/01/2025
 
 % Información del logo institucional
 \newcommand{\institutionalLogo}{assets/Logo PUCMM (Color).png}    % Ruta al logo de la institución
@@ -215,42 +221,6 @@
 % =============================================================================
 % GENERACIÓN AUTOMÁTICA DE ARCHIVO BIBLIOGRÁFICO
 % =============================================================================
-% Este bloque crea automáticamente un archivo biblio.bib con entradas de ejemplo
-% DESPUÉS DE LA PRIMERA COMPILACIÓN, puedes comentar este bloque si ya tienes
-% tu propio archivo de bibliografía.
-
-\begin{filecontents*}{biblio.bib}
-% Archivo de bibliografía generado automáticamente
-% Reemplaza estas entradas con tus referencias reales
-
-@book{ejemplo2024,
-  author = {Apellido, Nombre and Apellido2, Nombre2},
-  title = {Título del Libro de Ejemplo},
-  year = {2024},
-  edition = {1},
-  publisher = {Editorial Ejemplo},
-  address = {Ciudad, País}
-}
-
-@article{ejemploarticulo2024,
-  author = {Investigador, Principal},
-  title = {Título del Artículo de Investigación},
-  journal = {Revista Académica Ejemplo},
-  volume = {15},
-  number = {3},
-  pages = {45-67},
-  year = {2024}
-}
-
-@online{ejemploweb2024,
-  author = {Organización Ejemplo},
-  title = {Título del Recurso Web},
-  year = {2024},
-  url = {https://www.ejemplo.com},
-  urldate = {2024-01-15}
-}
-\end{filecontents*}
-
 % Cargar archivo de bibliografía
 \addbibresource{biblio.bib}
 
@@ -292,6 +262,8 @@
 \newpage
 \pagenumbering{Roman}               % Numeración romana para páginas preliminares
 \tableofcontents
+\listoffigures
+\listoftables
 \newpage
 
 % =============================================================================
@@ -301,79 +273,14 @@
 \pagenumbering{arabic}              % Numeración arábiga para contenido principal
 \pagestyle{fancy}                   % Activar encabezados y pies de página personalizados
 
-% -----------------------------------------------------------------------------
-% SECCIÓN: INTRODUCCIÓN
-% -----------------------------------------------------------------------------
-% Presenta el propósito y contexto del trabajo académico
-\section{Introducción}
-
- [ESCRIBIR AQUÍ LA INTRODUCCIÓN DEL DOCUMENTO]
-
-% Ejemplo de introducción:
-% Este documento presenta un análisis detallado sobre [TEMA PRINCIPAL]. 
-% El objetivo es [OBJETIVO PRINCIPAL] mediante [METODOLOGÍA UTILIZADA].
-% La estructura del trabajo incluye [DESCRIPCIÓN DE SECCIONES].
-
-% -----------------------------------------------------------------------------
-% SECCIÓN: DESARROLLO PRINCIPAL
-% -----------------------------------------------------------------------------
-% Contenido principal del trabajo académico
-\section{Desarrollo}
-
-% Subsección de ejemplo
-\subsection{[Título de Subsección]}
-
-[CONTENIDO DE LA SUBSECCIÓN]
-
-% Ejemplo de cómo citar fuentes
-% Según \cite{ejemplo2024}, el tema de investigación presenta características importantes...
-
-% Otra subsección de ejemplo
-\subsection{[Otra Subsección]}
-
-[CONTENIDO DE OTRA SUBSECCIÓN]
-
-% Subsubsección de ejemplo
-\subsubsection{[Tema Específico]}
-
-[CONTENIDO ESPECÍFICO]
-
-% -----------------------------------------------------------------------------
-% SECCIÓN: ANÁLISIS Y RESULTADOS (OPCIONAL)
-% -----------------------------------------------------------------------------
-% Incluir esta sección para trabajos de investigación o análisis
-\section{Análisis y Resultados}
-
- [PRESENTAR AQUÍ EL ANÁLISIS DE LOS DATOS O RESULTADOS OBTENIDOS]
-
-% -----------------------------------------------------------------------------
-% SECCIÓN: DISCUSIÓN (OPCIONAL)
-% -----------------------------------------------------------------------------
-% Interpretación de resultados y conexión con literatura existente
-\section{Discusión}
-
- [INTERPRETAR Y DISCUTIR LOS RESULTADOS EN RELACIÓN CON EL CONTEXTO ACADÉMICO]
-
-% -----------------------------------------------------------------------------
-% SECCIÓN: CONCLUSIONES
-% -----------------------------------------------------------------------------
-% Síntesis final del trabajo y recomendaciones
-\section{Conclusiones}
-
- [ESCRIBIR AQUÍ LAS CONCLUSIONES PRINCIPALES DEL TRABAJO]
-
-% Ejemplo de estructura para conclusiones:
-% 1. Resumen de hallazgos principales
-% 2. Implicaciones teóricas o prácticas
-% 3. Limitaciones del estudio
-% 4. Recomendaciones para trabajo futuro
+\input{content.tex}
 
 % =============================================================================
 % BIBLIOGRAFÍA
 % =============================================================================
 % Referencias bibliográficas automáticas
-\newpage
-\pagestyle{empty}                   % Sin encabezados ni pies de página
-\printbibliography[heading=bibintoc, title={Referencias}]
+% \newpage
+% \pagestyle{empty}                   % Sin encabezados ni pies de página
+% \printbibliography[heading=bibintoc, title={Referencias}]
 
 \end{document}
